@@ -1,6 +1,6 @@
 <script >
 export default {
-    name: 'AppHeader'
+    name: 'AppMain'
 }
 
 
@@ -9,9 +9,13 @@ export default {
 </script>
 
 <template>
-    <h1>BOOLFLIX</h1>
-    <input type="text" placeholder="saerch film or tv series">
-    <button>Search</button>
+    <div class="card">
+        <h2>Titolo</h2>
+        <h2>Titolo Originale</h2>
+        <span>Lingua</span>
+        <h4>Voto</h4>
+
+    </div>
 </template>
 
 <style lang="scss" scoped>
