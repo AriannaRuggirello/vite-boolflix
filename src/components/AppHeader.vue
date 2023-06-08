@@ -23,7 +23,7 @@ export default {
             </div>
 
             <div class="col">
-                <input type="text" placeholder="search film or tv series" v-model="store.searchFilm">
+                <input type="text" placeholder="search film or tv series" v-model="store.searchText">
                 <button @click="$emit('search')">Search</button>
             </div>
 

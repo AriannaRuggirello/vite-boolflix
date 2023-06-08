@@ -3,13 +3,15 @@ import { store } from './store.js';
 import axios from 'axios';
 
 import AppHeader from './components/AppHeader.vue'
-import AppCards from './components/AppCards.vue'
+import AppFilmsCards from './components/AppFilmsCards.vue'
+import AppSeriesCards from './components/AppSeriesCards.vue'
+
 
 export default {
   components: {
     AppHeader,
-    AppCards,
-
+    AppFilmsCards,
+    AppSeriesCards
   },
   data() {
     return {
@@ -19,25 +21,45 @@ export default {
   methods: {
     getFilms() {
 
-      let myUrl = store.apiUrlFilm;
-      if (store.searchFilm !== '') {
-        myUrl += `${store.searchFilm}`
-        console.log(myUrl);
-      }
+      let myUrlFilm = store.apiUrlFilm;
 
+      if (store.searchText !== '') {
+        myUrlFilm += `${store.searchText}`
+        console.log(myUrlFilm);
+      }
       // chiamata axios
-      axios.get(myUrl)
+      axios.get(myUrlFilm)
         // che cosa deve ritornare la chiamata
         .then(res => {
           // cards array vuoto 
-          store.filmArr = res.data.results;
+          store.filmsArr = res.data.results;
 
         })
         // gestire eventuali errori
         .catch(err => {
           console.log(err);
         })
-    }
+
+      let myUrlSerie = store.apiUrlSeries;
+
+      if (store.searchText !== '') {
+        myUrlSerie += `${store.searchText}`
+        console.log(myUrlSerie);
+      }
+      // chiamata axios
+      axios.get(myUrlSerie)
+        // che cosa deve ritornare la chiamata
+        .then(res => {
+          // cards array vuoto 
+          store.seriesArr = res.data.results;
+
+        })
+        // gestire eventuali errori
+        .catch(err => {
+          console.log(err);
+        })
+    },
+
   },
   created() {
     this.getFilms();
@@ -51,7 +73,11 @@ export default {
   <AppHeader @search="getFilms" />
   <main class="container">
     <div class="class row justify-content-center ">
-      <AppCards v-for="card in store.filmArr" :details="card" />
+      <h2>FILM</h2>
+      <AppFilmsCards v-for="film in store.filmsArr" :filmDetails="film" />
+      <h2>TV SERIES</h2>
+      <AppSeriesCards v-for="serie in store.seriesArr" :serieDetails="serie" />
+
     </div>
 
   </main>
