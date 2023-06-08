@@ -22,6 +22,7 @@ export default {
         <h4>ORIGINAL TITLE: {{ serieDetails.name }}</h4>
         <img class="icon" :src="'../../img/' + serieDetails.original_language + '.png'" alt="img not found!">
         <h6>{{ serieDetails.vote_average }}</h6>
+        <i class="fa-regular fa-star"></i>
 
     </div>
 </template>
