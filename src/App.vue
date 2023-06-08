@@ -19,7 +19,7 @@ export default {
   methods: {
     getFilms() {
 
-      let myUrl = store.apiURL;
+      let myUrl = store.apiUrlFilm;
       if (store.searchFilm !== '') {
         myUrl += `${store.searchFilm}`
         console.log(myUrl);

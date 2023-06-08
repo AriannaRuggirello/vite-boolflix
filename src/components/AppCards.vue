@@ -16,11 +16,12 @@ export default {
 </script>
 
 <template>
-    <div class="col-lg-2 film-card">
-        <h2>{{ details.original_title }}</h2>
-        <h2>{{ details.title }}</h2>
-        <span>{{ details.original_language }}</span>
-        <h4>{{ details.vote_average }}</h4>
+    <div class="col-lg-2 col-sm-4 film-card">
+        <h4>TITLE : {{ details.original_title }}</h4>
+        <h4>ORIGINAL TITLE: {{ details.title }}</h4>
+        <img :src="'../../img/' + details.original_language + '.png'" alt="img not found!">
+        <h6>{{ details.vote_average }}</h6>
+
     </div>
 </template>
 
@@ -29,7 +30,12 @@ export default {
 @use '../styles/partials/mixin.scss' as *;
 
 .film-card {
-    border: 1px solid black;
+    border: 1px solid red;
+    padding: 10px;
+
+    img {
+        width: 20px;
+    }
 
 }
 </style>
