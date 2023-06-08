@@ -16,10 +16,12 @@ export default {
 </script>
 
 <template>
-    <div class="col-lg-2 col-sm-4 film-card">
+    <div class="col col-sm-4 film-card">
+        <img :src="'https://image.tmdb.org/t/p/w342/' + filmDetails.poster_path" alt="">
+
         <h4>TITLE : {{ filmDetails.original_title }}</h4>
         <h4>ORIGINAL TITLE: {{ filmDetails.title }}</h4>
-        <img :src="'../../img/' + filmDetails.original_language + '.png'" alt="img not found!">
+        <img class='icon' :src="'../../img/' + filmDetails.original_language + '.png'" alt="img not found!">
         <h6>{{ filmDetails.vote_average }}</h6>
 
     </div>
@@ -30,10 +32,10 @@ export default {
 @use '../styles/partials/mixin.scss' as *;
 
 .film-card {
-    border: 1px solid red;
+
     padding: 10px;
 
-    img {
+    .icon {
         width: 20px;
     }
 
