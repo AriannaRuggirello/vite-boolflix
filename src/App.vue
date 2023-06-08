@@ -73,9 +73,9 @@ export default {
   <AppHeader @search="getFilms" />
   <main class="container">
     <div class="class row justify-content-center ">
-      <h2>FILM</h2>
+
       <AppFilmsCards v-for="film in store.filmsArr" :filmDetails="film" />
-      <h2>TV SERIES</h2>
+
       <AppSeriesCards v-for="serie in store.seriesArr" :serieDetails="serie" />
 
     </div>

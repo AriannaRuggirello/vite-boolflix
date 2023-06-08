@@ -12,35 +12,30 @@ export default {
             store,
         }
     },
-    computed: {
-        convertToIntegerNum() {
-            let stars = filmDetails.vote_average / 10;
+    // methods: {
+    //     convertToIntegerNum(n) {
+    //         let stars = n / 10;
+    //         const star = Math.round(stars * 5);
+    //         return star;
+    //     }
+    // }
 
-            const star = Math.round(stars * 5);
-
-            return star;
-        }
-    }
 }
 
 </script>
 
 <template>
-    <div class="col col-sm-4 film-card">
+    <div class="col-lg-3  card">
         <img :src="'https://image.tmdb.org/t/p/w342/' + filmDetails.poster_path" alt="">
 
-        <div class="col col-sm-4 film-card">
-            <img :src="'https://image.tmdb.org/t/p/w342/' + filmDetails.poster_path" alt="">
+        <h4>TITLE : {{ filmDetails.original_title }}</h4>
+        <h4>ORIGINAL TITLE: {{ filmDetails.title }}</h4>
+        <img class='icon' :src="'../../img/' + filmDetails.original_language + '.png'" alt="img not found!">
 
-            <h4>TITLE : {{ filmDetails.original_title }}</h4>
-            <h4>ORIGINAL TITLE: {{ filmDetails.title }}</h4>
-            <img class='icon' :src="'../../img/' + filmDetails.original_language + '.png'" alt="img not found!">
-            <h6>{{ filmDetails.vote_average }}</h6>
-            <i class="fa-solid fa-star"></i>
-            <i class="fa-regular fa-star"></i>
+        <!-- <i v-for="(star, index) in 5" :class="convertTointegerNum(filmDetails.vote_average) >= index ? 'active' : ''"
+                        class="fa-regular fa-star"></i> -->
 
 
-        </div>
     </div>
 </template>
 
@@ -49,13 +44,13 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 @use '../styles/partials/mixin.scss' as *;
 
-.film-card {
 
-    padding: 10px;
 
-    .icon {
-        width: 20px;
-    }
+.icon {
+    width: 30px;
+}
 
+.active {
+    background-color: yellow;
 }
 </style>
