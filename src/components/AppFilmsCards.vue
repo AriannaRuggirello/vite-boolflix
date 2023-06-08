@@ -12,13 +12,12 @@ export default {
             store,
         }
     },
-    // methods: {
-    //     convertToIntegerNum(n) {
-    //         let stars = n / 10;
-    //         const star = Math.round(stars * 5);
-    //         return star;
-    //     }
-    // }
+    methods: {
+        startValutation() {
+
+            return Math.round((this.filmDetails.vote_average / 10) * 5);
+        }
+    }
 
 }
 
@@ -28,12 +27,17 @@ export default {
     <div class="col-lg-3  card">
         <img :src="'https://image.tmdb.org/t/p/w342/' + filmDetails.poster_path" alt="">
 
-        <h4>TITLE : {{ filmDetails.original_title }}</h4>
-        <h4>ORIGINAL TITLE: {{ filmDetails.title }}</h4>
+        <h4>Title : {{ filmDetails.original_title }}</h4>
+        <h4>Original title: {{ filmDetails.title }}</h4>
         <img class='icon' :src="'../../img/' + filmDetails.original_language + '.png'" alt="img not found!">
+        <div class="row ">
+            <div class="col">
+                <span>Score:</span>
+                <i v-for="count in 5" class="fa-solid fa-star" :class="(startValutation()) >= count ? 'active' : ''"></i>
+            </div>
 
-        <!-- <i v-for="(star, index) in 5" :class="convertTointegerNum(filmDetails.vote_average) >= index ? 'active' : ''"
-                        class="fa-regular fa-star"></i> -->
+        </div>
+
 
 
     </div>
@@ -51,6 +55,6 @@ export default {
 }
 
 .active {
-    background-color: yellow;
+    color: orange;
 }
 </style>
