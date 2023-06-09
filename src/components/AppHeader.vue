@@ -22,12 +22,10 @@ export default {
                 <h1>BOOLFLIX</h1>
             </div>
 
-            <div class="col">
+            <div class="col text-end">
                 <input type="text" placeholder="search film or tv series" v-model="store.searchText">
                 <button @click="$emit('search')">Search</button>
             </div>
-
-
         </div>
 
     </header>

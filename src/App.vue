@@ -71,8 +71,8 @@ export default {
 
 <template>
   <AppHeader @search="getFilms" />
-  <main class="container">
-    <div class="class row justify-content-center ">
+  <main>
+    <div class="cards-container">
 
       <AppFilmsCards v-for="film in store.filmsArr" :filmDetails="film" />
 
@@ -87,4 +87,12 @@ export default {
 @use './styles/partials/variables.scss' as *;
 @use './styles/partials/mixin.scss' as *;
 @use './styles/general.scss' as *;
+
+.cards-container {
+
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>
