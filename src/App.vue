@@ -72,13 +72,14 @@ export default {
 <template>
   <AppHeader @search="getFilms" />
   <main>
-    <div class="cards-container">
+    <h4 v-if="store.filmsArr.length === 0 ? '' : store.filmsArr.length">Found {{ store.filmsArr.length }} films</h4>
+    <AppFilmsCards v-for="film in store.filmsArr" :filmDetails="film" />
 
-      <AppFilmsCards v-for="film in store.filmsArr" :filmDetails="film" />
+    <h4 v-if="store.seriesArr.length === 0 ? '' : store.seriesArr.length">Found {{ store.seriesArr.length }} TV series
+    </h4>
+    <AppSeriesCards v-for="serie in store.seriesArr" :serieDetails="serie" />
 
-      <AppSeriesCards v-for="serie in store.seriesArr" :serieDetails="serie" />
 
-    </div>
 
   </main>
 </template>
@@ -88,11 +89,7 @@ export default {
 @use './styles/partials/mixin.scss' as *;
 @use './styles/general.scss' as *;
 
-.cards-container {
-
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+h4 {
+  padding: 20px 0 0 5px;
 }
 </style>
