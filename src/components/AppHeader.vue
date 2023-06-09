@@ -39,5 +39,22 @@ header {
     background-color: black;
     color: red;
     padding: 0 30px;
+
+    input,
+    button {
+        border-radius: 5px;
+        padding: 3px;
+        border-style: none;
+    }
+
+    button {
+        background-color: red;
+        color: white;
+        margin-left: 10px;
+    }
+
+    button:hover {
+        background: rgb(214, 2, 2);
+    }
 }
 </style>

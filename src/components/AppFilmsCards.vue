@@ -67,7 +67,7 @@ export default {
 
 .figure {
     position: relative;
-    padding: 5px;
+    margin: 5px;
 }
 
 .figure:hover {
@@ -92,7 +92,7 @@ export default {
     z-index: 1;
     background-color: black;
     color: white;
-    border: 1px solid white;
+
 
 
 }
