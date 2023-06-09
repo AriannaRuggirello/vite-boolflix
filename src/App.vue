@@ -25,7 +25,7 @@ export default {
 
       if (store.searchText !== '') {
         myUrlFilm += `${store.searchText}`
-        console.log(myUrlFilm);
+
       }
       // chiamata axios
       axios.get(myUrlFilm)
@@ -44,7 +44,7 @@ export default {
 
       if (store.searchText !== '') {
         myUrlSerie += `${store.searchText}`
-        console.log(myUrlSerie);
+
       }
       // chiamata axios
       axios.get(myUrlSerie)

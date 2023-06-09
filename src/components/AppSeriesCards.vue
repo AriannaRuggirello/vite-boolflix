@@ -14,7 +14,7 @@ export default {
     methods: {
         startValutation() {
 
-            return Math.round((this.filmDetails.vote_average / 10) * 5);
+            return Math.round((this.serieDetails.vote_average / 10) * 5);
         }
     }
 }
@@ -59,22 +59,26 @@ export default {
 @use '../styles/partials/variables.scss' as *;
 @use '../styles/partials/mixin.scss' as *;
 
-
 .figure {
     position: relative;
+    margin: 5px;
 }
 
 .figure:hover {
     transform: rotateY(180deg);
     transition: transform 0.6s;
-    transform-style: preserve-3d;
+}
+
+.figure:hover .back-card {
+    display: block;
 }
 
 .back-card {
     display: none;
     width: 342px;
     height: 512px;
-    text-align: center;
+    padding-top: 30px;
+    padding-left: 30px;
     position: absolute;
     top: 0;
     left: 0;
@@ -82,16 +86,16 @@ export default {
     z-index: 1;
     background-color: black;
     color: white;
-    border: 1px solid white;
 
 
-}
 
-.figure:hover .back-card {
-    display: block;
 }
 
 .icon {
     width: 20px;
+}
+
+.active {
+    color: orange;
 }
 </style>
